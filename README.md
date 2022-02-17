@@ -106,3 +106,10 @@ To build the standalone:
 ```sh
 yarn run dist -- --watch
 ```
+
+## Build/publish
+
+```
+yarn run compile
+npm publish
+```
