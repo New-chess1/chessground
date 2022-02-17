@@ -22,6 +22,10 @@ export const knight: Mobility = (x1, y1, x2, y2) => {
   return (xd === 1 && yd === 2) || (xd === 2 && yd === 1);
 };
 
+export const duke: Mobility = (x1, y1, x2, y2) => {
+  return (bishop(x1, y1, x2, y2) || rook(x1, y1, x2, y2)) && (diff(x1, x2) <= 2 && diff(y1, y2) <= 2);
+};
+
 const bishop: Mobility = (x1, y1, x2, y2) => {
   return diff(x1, x2) === diff(y1, y2);
 };
@@ -71,6 +75,8 @@ export function premove(pieces: cg.Pieces, key: cg.Key, canCastle: boolean): cg.
         ? rook
         : r === 'queen'
         ? queen
+        : r === 'duke'
+        ? duke
         : king(piece.color, rookFilesOf(pieces, piece.color), canCastle);
   return util.allPos
     .filter(pos2 => (pos[0] !== pos2[0] || pos[1] !== pos2[1]) && mobility(pos[0], pos[1], pos2[0], pos2[1]))

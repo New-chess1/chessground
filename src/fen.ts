@@ -10,12 +10,14 @@ const roles: { [letter: string]: cg.Role } = {
   b: 'bishop',
   q: 'queen',
   k: 'king',
+  d: 'duke',
 };
 
 const letters = {
   pawn: 'p',
   rook: 'r',
   knight: 'n',
+  duke: 'd',
   bishop: 'b',
   queen: 'q',
   king: 'k',
